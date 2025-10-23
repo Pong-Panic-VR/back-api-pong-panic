@@ -1,0 +1,23 @@
+{
+  "name": "back-api-pong-panic",
+  "version": "1.0.0",
+  "description": "back-end of the game pong panic vr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pong-Panic-VR/back-api-pong-panic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pong-Panic-VR/back-api-pong-panic/issues"
+  },
+  "homepage": "https://github.com/Pong-Panic-VR/back-api-pong-panic#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
