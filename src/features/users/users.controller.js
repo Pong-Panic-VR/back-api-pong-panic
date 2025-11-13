@@ -55,6 +55,18 @@ exports.login = async (req, res) => {
     }
 };
 
+exports.getMe = async (req, res) => {
+    try {
+        const user = await User.findById(req.userId, '-password -updatedAt')
+        if (!user) return res.status(404).json({ error: 'Utilisateur non trouvé' });
+        res.status(200).json(user);
+    } catch (err) {
+        console.error("Erreur:" , err.message);
+        res.status(404).json({error: "Erreur interne"});
+    }
+}
+
+// Rajouter un middleware pour le mot de passe ou du moins le faire sois même
 
 exports.getAllUser = async (req, res) => {
     try {
