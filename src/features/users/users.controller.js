@@ -66,8 +66,6 @@ exports.getMe = async (req, res) => {
     }
 }
 
-// Rajouter un middleware pour le mot de passe ou du moins le faire sois même
-
 exports.getAllUser = async (req, res) => {
     try {
         const users = await User.find();
