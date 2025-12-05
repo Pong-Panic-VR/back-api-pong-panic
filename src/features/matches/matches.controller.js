@@ -15,3 +15,17 @@ exports.getMatchById = async (req, res) => {
     } 
 };
 
+exports.deleteMatchById = async (req, res) => {
+    try {
+        const matchId = req.params.id;
+        const deleteMatch = await Matches.findByIdAndDelete(matchId);
+
+        if (!deleteMatch) {
+            return res.status(404).json({ error: "Match introuvable" });
+        }
+        
+        res.status(200).json("Match supprimé")
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    } 
+};
