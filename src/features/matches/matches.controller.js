@@ -23,7 +23,7 @@ exports.deleteMatchById = async (req, res) => {
         if (!deleteMatch) {
             return res.status(404).json({ error: "Match introuvable" });
         }
-        
+
         await deleteMatch.deleteOne();
 
         res.status(200).json("Match supprimé")
@@ -31,3 +31,20 @@ exports.deleteMatchById = async (req, res) => {
         res.status(400).json({ error: err.message });
     } 
 };
+
+exports.createMatch = async (req, res) => {
+    try {
+        const newMatch = new Matches({
+            players: req.body.players,
+            sets: req.body.sets,
+            winner: req.body.winner,
+            duration: req.body.duration
+        });
+        
+        await newMatch.save();
+        res.status(201).json(newMatch);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
